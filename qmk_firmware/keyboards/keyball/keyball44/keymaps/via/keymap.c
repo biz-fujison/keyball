@@ -69,3 +69,11 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+// Always enable Num Lock
+bool led_update_user(led_t led_state) {
+    if (!led_state.num_lock) {
+        tap_code(KC_NLCK);
+    }
+    return true;
+}
